@@ -10,6 +10,8 @@
     "@riophae/vue-treeselect": "^0.4.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "jquery": "^3.5.1",
+    "moment": "^2.29.1",
     "sweetalert2": "^10.12.6",
     "vue": "^2.6.11",
     "vue-loading-overlay": "^3.4.2",

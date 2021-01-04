@@ -2,9 +2,11 @@
     <div id="app">
         <main class="main-content">
             <section v-if="token">
+                <app-header/>
                 <router-view/>
             </section>
             <section v-else>
+                <app-header/>
                 <router-view/>
             </section>
         </main>
@@ -12,9 +14,13 @@
 </template>
 
 <script>
+
+// Components
+import AppHeader from './components/layout/AppHeader.vue'
+
     export default {
         name: 'App',
-        components: {},
+        components: {AppHeader},
         data() {
             return {
                 token: localStorage.token

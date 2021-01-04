@@ -1,7 +1,13 @@
 import axios from 'axios'
 
 let headers;
-const baseURL = '';
+let baseURL;
+
+if (process.env.NODE_ENV === 'development') {
+    baseURL = ''
+} else if (process.env.NODE_ENV === 'production') {
+    baseURL = ''
+}
 
 try {
     headers = {

@@ -9,5 +9,8 @@ export default [
             isLogin: true
         }
     },
-
+    {
+        path: "*",
+        component: () => import('../views/404/index')
+    }
 ]
