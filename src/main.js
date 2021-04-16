@@ -1,6 +1,6 @@
 /*
  =========================================================
- * Vue Dashboard - v0.0.1
+ * Vue Boilerplate - v0.0.1
  =========================================================
 
  * Product Page: https://shahrza.com
@@ -18,31 +18,33 @@ import store from './store'
 import '@/assets/styles/index.scss'
 
 // Plugins
-import moment from 'moment'
-import loading from 'vue-loading-overlay'
+import Moment from 'moment'
+import Vuelidate from 'vuelidate'
+import VueTheMask from 'vue-the-mask'
+import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import i18n from './i18n'
 
-// Vue.use(Vuelidate);
-// Vue.use(VueTheMask);
-// Vue.use(loading, {color: '#4a61e8'})
+Vue.use(Vuelidate);
+Vue.use(VueTheMask);
+Vue.use(Loading, {color: '#4a61e8'})
 
-window.$ = window.jQuery = require('jquery');
+export const eventBus = new Vue();
 
-export const eBus = new Vue();
-
+// Filters
 Vue.filter('formatDate', function(value) {
   if (value) {
-    return moment(new Date(value)).format('L');
+    return Moment(new Date(value)).format('L');
   }
 })
 
 Vue.config.productionTip = false;
 
-
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')
