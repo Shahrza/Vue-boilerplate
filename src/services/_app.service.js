@@ -1,22 +1,17 @@
 import axios from "axios";
 
 let headers;
-let baseURL;
-
-if (process.env.NODE_ENV === "development") {
-  baseURL = "";
-} else if (process.env.NODE_ENV === "production") {
-  baseURL = "";
-}
+let baseURL = process.env.VUE_APP_API_URL || "";
 
 try {
   headers = {
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
     Accept: "application/json",
-    token: localStorage.token ? JSON.parse(localStorage.token) : "",
+    Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
   };
 } catch (e) {
-  this.$router.push({name: 'error'})
+  this.$router.push({ name: "error" });
 }
 
 const instance = axios.create({
