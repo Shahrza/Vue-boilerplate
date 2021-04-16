@@ -15,26 +15,31 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './assets/styles/app.scss'
+import '@/assets/styles/index.scss'
 
 // Plugins
 import moment from 'moment'
 import loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 // Vue.use(Vuelidate);
 // Vue.use(VueTheMask);
-// Vue.use(loading, {color: '#4a61e8'});
+// Vue.use(loading, {color: '#4a61e8'})
 
 window.$ = window.jQuery = require('jquery');
 
 export const eBus = new Vue();
 
-Vue.prototype.moment = moment
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(new Date(value)).format('L');
+  }
+})
 
 Vue.config.productionTip = false;
 
-console.log(process.env.VUE_APP_BASE_URL);
 
 new Vue({
   router,

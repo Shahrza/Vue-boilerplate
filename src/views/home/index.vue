@@ -1,11 +1,12 @@
 <template>
-    <div>hey</div>
+  <div class="d-flex justify-content-center align-items-center">
+    <h1>Hey. Welcome</h1>
+  </div>
 </template>
 
 <script>
-    export default {}
+export default {};
 </script>
 
 <style scoped>
-
 </style>

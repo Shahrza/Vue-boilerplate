@@ -1,11 +1,11 @@
-import Auth from '../services/auth.service'
+import AuthService from '../services/auth.service'
 
 const User = {}
 
 User.checkToken = () => {
    if (localStorage.token) {
       const token = JSON.parse(localStorage.token)
-      Auth.checkToken(token)
+      AuthService.checkToken(token)
          .then(res => {
             if (res.data.status !== 200) {
                localStorage.clear();

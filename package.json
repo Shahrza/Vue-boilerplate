@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
+    "normalize.css": "^8.0.1",
     "sweetalert2": "^10.12.6",
     "vue": "^2.6.11",
     "vue-loading-overlay": "^3.4.2",
@@ -23,6 +24,7 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",

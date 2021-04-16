@@ -1,35 +1,31 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import routes from './routes'
-// import Auth from '../methods/helper'
+import Vue from "vue";
+import Router from "vue-router";
+import routes from "./routes";
+import Auth from "../utils/index";
 
 Vue.use(Router);
 
-const customRouter = new Router({
-  routes
-});
-
-customRouter.beforeEach((to, from, next) => {
-  // Auth.checkToken();
-  const token = localStorage.token;
-
-  if (token) {
-    if (to.matched.some(route => route.meta.isLogin)) {
-      next();
-    } else {
-      next({ name: 'home' })
-    }
-  } else if (!token && to.name === 'auth.login') {
-    next()
-  } else {
-    next({ name: 'auth.login' });
-  }
-
-});
-
 const router = new Router({
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  // Auth.checkToken();
+  // @TODO 
+  // remove true
+  const token = localStorage.token || true; 
+  if (token) {
+    if (to.matched.some((route) => route.meta.isAuth)) {
+      next();
+      return;
+    }
+    next({ name: "home" });
+  } else if (!token && to.name === "auth.login") {
+    next();
+  } else {
+    next({ name: "auth.login" });
+  }
+});
+
+export default router;

@@ -1,4 +1,4 @@
-// import Methods from '../methods/helper'
+// import Methods from '../utils/index'
 
 export default [
     {
@@ -6,11 +6,21 @@ export default [
         name: 'home',
         component: () => import('../views/home/index'),
         meta: {
-            isLogin: true
+            isAuth: true
         }
+    },
+    {
+        path: '/auth/login',
+        name: 'auth.login',
+        component: () => import('../views/500/index'),
     },
     {
         path: "*",
         component: () => import('../views/404/index')
+    },
+    {
+        path: "/error",
+        name: 'error',
+        component: () => import('../views/500/index')
     }
 ]
