@@ -22,7 +22,7 @@ export default {
   components: { AppHeader, AppFooter },
   data() {
     return {
-      token: localStorage.token,
+      token: localStorage.getItem('token'),
     };
   },
 };
