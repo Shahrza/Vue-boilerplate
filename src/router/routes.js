@@ -4,7 +4,7 @@ export default [
     {
         path: '/',
         name: 'home',
-        component: () => import('../views/home/index'),
+        component: () => import('../views/home'),
         meta: {
             isAuth: true
         }
@@ -12,15 +12,15 @@ export default [
     {
         path: '/auth/login',
         name: 'auth.login',
-        component: () => import('../views/500/index'),
+        component: () => import('../views/auth'),
     },
     {
         path: "*",
-        component: () => import('../views/404/index')
+        component: () => import('../views/404')
     },
     {
         path: "/error",
         name: 'error',
-        component: () => import('../views/500/index')
+        component: () => import('../views/500')
     }
 ]

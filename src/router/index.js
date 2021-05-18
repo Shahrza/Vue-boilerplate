@@ -12,10 +12,8 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  // Auth.checkToken();
-  // @TODO 
-  // remove true
-  const token = localStorage.getItem('token') || true; 
+  Auth.checkToken();
+  const token = localStorage.getItem('token'); 
   if (token) {
     if (to.matched.some((route) => route.meta.isAuth)) {
       next();

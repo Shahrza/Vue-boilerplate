@@ -1,8 +1,8 @@
 import AuthService from "../services/auth.service";
 
-const User = {};
+const Auth = {};
 
-User.checkToken = () => {
+Auth.checkToken = () => {
   if (localStorage.getItem("token")) {
     const token = JSON.parse(localStorage.getItem("token"));
     AuthService.checkToken(token)
@@ -19,7 +19,7 @@ User.checkToken = () => {
   }
 };
 
-User.getRule = (key) => {
+Auth.getRule = (key) => {
   if (localStorage.getItem("ruleList")) {
     const rule = JSON.parse(localStorage.getItem("ruleList")).find(
       (item) => item.name === key
@@ -29,4 +29,4 @@ User.getRule = (key) => {
   return false;
 };
 
-export default User;
+export default Auth;
